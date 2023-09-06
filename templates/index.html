@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violence Detection</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const fileInput = document.querySelector('input[type="file"]');
+            const errorMessage = document.getElementById('error-message');
+            const videoPlayer = document.getElementById('video-player');
+
+            form.addEventListener('submit', function(event) {
+                if (fileInput.files.length === 0) {
+                    event.preventDefault(); // Prevent form submission
+                    errorMessage.innerText = 'No Video Inserted'; // Display error message
+                }
+            });
+
+            // Clear the error message when a file is selected
+            fileInput.addEventListener('change', function() {
+                errorMessage.innerText = '';
+                videoPlayer.src = URL.createObjectURL(fileInput.files[0]); // Display selected video
+                videoPlayer.muted = true; // Mute the video
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Violence Detection</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="video" accept=".mp4" id="file-input" style="display: none;">
+        <label for="file-input" class="btn">Choose Video</label>
+        <!-- Apply the same styles to the submit button -->
+        <button type="submit" class="btn">Submit</button>
+    </form>
+    <div id="video-container">
+        <video id="video-player" controls autoplay></video>
+    </div>
+    <div id="result">
+        {% if prediction %}
+        <p>Predicted Class: {{ prediction }}</p>
+        <p>Confidence: {{ confidence }}</p>
+        {% endif %}
+    </div>
+    <div id="error-message"></div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/background.jpg');/* Replace 'background.jpg' with your image file */
+    background-size: cover; /* Scale the background image to cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    text-align: center;
+    background-attachment: fixed; /* Fix the background image so it doesn't scroll */
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+#video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#video-player {
+    max-width: 50%; /* Remove the max-width to allow the video to expand */
+    width: 50%; /* Set the width to 100% to fill the container */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+
+.btn-container {
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3f00b3;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px; /* Add margin to separate buttons */
+}
+
+label.btn:hover {
+    background-color: #3f00b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Apply the same styles to the submit button */
+button.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3f00b3;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px; /* Add margin to separate buttons */
+    border: none; /* Remove default button border */
+}
+
+button.btn:hover {
+    background-color: #3f00b3;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3f00b3;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px; /* Add margin to separate buttons */
+    border: none; /* Remove default button border */
+    font-size: 16px; /* Adjust the font size to your liking */
+    text-align: center; /* Center the button text */
+    width: 150px; /* Set a fixed width for both buttons */
+}
+
+.btn:hover {
+    background-color: #3f00b3;
+}
+h1, #result {
+    color: #ffffff; /* Change to the color you prefer (e.g., white) */
+}
+
+/* Change text color for error messages */
+#error-message {
+    color: red;
+    margin-top: 10px;
+}
